@@ -22,4 +22,4 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log(err);
 })
 
-module.exports = app;
+export default app;
