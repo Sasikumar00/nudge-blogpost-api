@@ -11,6 +11,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/", (req, res) => {
+    res.send("Server is running");
+})
 app.use("/api/blogs", blogRoutes);
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
