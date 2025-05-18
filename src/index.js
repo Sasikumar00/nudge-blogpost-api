@@ -11,10 +11,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/blogs", blogRoutes);
 app.use("/", (req, res) => {
     res.send("Server is running");
 })
-app.use("/api/blogs", blogRoutes);
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log("Connected to MongoDB");
@@ -22,6 +22,4 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log(err);
 })
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+module.exports = app;
